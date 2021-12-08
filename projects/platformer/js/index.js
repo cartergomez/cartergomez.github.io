@@ -54,7 +54,7 @@ $(document).ready(function () {
             lives--;
             game.lives.text = 'Lives ' + lives;            
         } else {
-            setTimeout(() => game.lives.text = "Game Over: Refresh Your Browser to Play Again", 500);
+            setTimeout(() => game.lives.text = "GAME OVER: Refresh Your Browser to Play Again", 500);
         } 
     }
 
