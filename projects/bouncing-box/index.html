@@ -8,7 +8,7 @@
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+			background-color: rgb(116, 45, 197);
 			font-size: 300%;
 			text-align: center;
 			display: block;
@@ -63,7 +63,8 @@
 			// TODO 2 - Variable declarations 
 				var positionX = 0;
 				var points = 0;
-			
+				var speed = 10;
+
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
@@ -71,9 +72,14 @@
 			*/
 			function update() {
 				moveBoxTo(positionX);
-				positionX = positionX + 10;
-
-
+				positionX = positionX + speed;
+				moveBoxTo(positionX);
+				if (positionX >= boardWidth){
+					speed = -speed
+				}
+				if (positionX < 0){
+					speed = -speed
+				}
 
 			};
 
@@ -86,6 +92,15 @@
 				positionX = 0;
 				points += 1;
 				changeBoxText(points);
+				
+				if(speed > 0){
+					speed = speed + 3;
+				}
+
+				else{
+					speed = speed - 3;
+				}
+				
 
 			};
 		})();
