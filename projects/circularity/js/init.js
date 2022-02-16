@@ -39,7 +39,7 @@ var init = function (window) {
         drawCircle();
         */
         
-        for (var i  = 0; i <= 100; i++) {
+        for (var i  = 0; i <= 100; i++) { //creates an infinite loop for the cirlces without the repetitive code.
             drawCircle();
         }
         
@@ -70,7 +70,7 @@ var init = function (window) {
             // TODO 9 : Iterate over the array
             for (var k = 0; k <= circles.length - 1; k++) {
                 physikz.updatePosition(circles[k])
-                game.checkCirclePosition(circles[k])
+                game.checkCirclePosition(circles[k]) //iterates over the previous array updating and cheking the position of all the circles.
             }
         }
     
@@ -82,7 +82,7 @@ var init = function (window) {
         game.checkCirclePosition = function(circle) {
 
             // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
-            if ( circle.x > canvas.width ) {
+            if ( circle.x > canvas.width ) { //creates a "boarder" to where when a circle goes off a space of the scree it is then returned on the opposite side, creating a loop.
                 circle.x = 0;
             }
             if ( circle.x < 0 ) {
