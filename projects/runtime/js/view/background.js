@@ -42,10 +42,10 @@ var background = function (window) {
             
             // TODO: 3 - Add a moon and starfield
             var moon = draw.bitmap('img/moon.png'); // created a variable called moon. Draw.bitmap draws the image and stores it in the moon variable
-            moon.x = 700; // moves the moon to the left or right
-            moon.y = 40; // moves the moon up or down
-            moon.scaleX = 0.5; // scales the image on the x axis
-            moon.scaleY = 0.5; // scales the moon on the y axis
+            moon.x = 900; // moves the moon to the left or right
+            moon.y = 50; // moves the moon up or down
+            moon.scaleX = 0.6; // scales the image on the x axis
+            moon.scaleY = 0.6; // scales the moon on the y axis
             background.addChild(moon);
 
             for (var i = 0; i <= 100; i++){ // everytime the doop runs it creates a circle with a random x and y respectice to the canvas ad it adds to the canvas

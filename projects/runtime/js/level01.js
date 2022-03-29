@@ -16,9 +16,17 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-                { "type": "sawblade", "x": 400, "y": groundY },
-                { "type": "sawblade", "x": 600, "y": groundY },
-                { "type": "sawblade", "x": 900, "y": groundY },
+                { "type": "sawblade", "x": 600, "y": groundY - 50},
+                { "type": "sawblade", "x": 2000, "y": groundY - 100},
+                { "type": "sawblade", "x": 1000, "y": groundY - 20},
+
+                { "type": "enemy", "x": 500, "y": groundY - 50},
+                { "type": "enemy", "x": 2000, "y": groundY - 50},
+                { "type": "enemy", "x": 5000, "y": groundY - 50},
+            
+                { "type": "reward", "x": 300, "y": groundY - 75},
+                { "type": "reward", "x": 1300, "y": groundY - 75},
+                { "type": "reward", "x": 1200, "y": groundY - 75},
             ]
         };
         window.levelData = levelData;
@@ -27,6 +35,11 @@ var level01 = function (window) {
 
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min) ) + min;
+          }
+
+
         function createSawBlade(x, y){
         var hitZoneSize = 25; //creates the size of the hitzone
         var damageFromObstacle = 10; //sets the damage of the obstacle
@@ -42,15 +55,16 @@ var level01 = function (window) {
         sawBladeHitZone.rotationalVelocity = 5;
         }
 
-        createSawBlade(600, 345);
-        createSawBlade(1500, 345);
-        createSawBlade(2000, 345);
+        
 
         function createEnemy(x,y){
             var enemy = game.createGameItem('enemy',25); //creating the game item and storing it in the variable enemy
-            var redSquare = draw.rect(50,50,'red'); //creates rectangle and stores as redSquare
-            redSquare.x = -25;
-            redSquare.y = -25;
+           var images = [];
+            var redSquare = draw.bitmap('img/joker.png');
+            redSquare.x = -45;
+            redSquare.y = -80;
+            redSquare.scaleX = 0.3;
+            redSquare.scaleY = 0.3;
             enemy.addChild(redSquare); //adds the redsquare to the enemy game
 
             enemy.x = x;
@@ -60,7 +74,7 @@ var level01 = function (window) {
 
             enemy.velocityX = -1; //this causes the enemy to move one pixel to the left on the x position
             
-            enemy.rotationalVelocity = 25;
+            enemy.rotationalVelocity = 0;
 
             enemy.onPlayerCollision = function(){
                 console.log("The enemy has hit Halle");
@@ -75,9 +89,54 @@ var level01 = function (window) {
             };
         }
 
-        createEnemy(400, groundY - 50);
-        createEnemy(800, groundY - 50);
-        createEnemy(1000, groundY - 50);
+        function createReward(x,y){
+            var reward = game.createGameItem('reward',25); //creating the game item and storing it in the variable reward
+            var blueSquare = draw.bitmap('img/reward.png'); //creates rectangle and stores as redSquare
+            blueSquare.x = -40;
+            blueSquare.y = -25;
+            blueSquare.scaleX = 0.1
+            blueSquare.scaleY = 0.1
+            reward.addChild(blueSquare); //adds the redsquare to the reward game
+
+            reward.x = x;
+            reward.y = y;
+
+            game.addGameItem(reward);//adds reward to the game
+
+            reward.velocityX = -1; //this causes the reward to move one pixel to the left on the x position
+            
+            reward.rotationalVelocity = 0;
+
+            reward.onPlayerCollision = function(){
+                console.log("The reward has hit Halle");
+                game.changeIntegrity(10);
+                game.increaseScore(10);
+                reward.shrink();
+            };
+
+        }
+
+
+
+       
+
+        for(var i = 0; i < levelData.gameItems.length; i++){
+            var gameItem = levelData.gameItems[i];
+            
+            if (gameItem.type === "sawblade"){
+                createSawBlade(gameItem.x, gameItem.y);
+            }
+
+            if (gameItem.type === "enemy"){
+                createEnemy(gameItem.x, gameItem.y);
+            }
+
+            if (gameItem.type === "reward"){
+                createReward(gameItem.x, gameItem.y);
+            }
+        }
+
+       
         // DO NOT EDIT CODE BELOW HERE
     }
 };
