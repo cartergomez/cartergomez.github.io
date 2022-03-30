@@ -16,13 +16,17 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-                { "type": "sawblade", "x": 600, "y": groundY - 50},
+                { "type": "sawblade", "x": 600, "y": groundY - 20},
                 { "type": "sawblade", "x": 2000, "y": groundY - 100},
                 { "type": "sawblade", "x": 1000, "y": groundY - 20},
+                { "type": "sawblade", "x": 1500, "y": groundY - 20},
+                { "type": "sawblade", "x": 2000, "y": groundY - 100},
+                { "type": "sawblade", "x": 2400, "y": groundY - 20},
 
                 { "type": "enemy", "x": 500, "y": groundY - 50},
                 { "type": "enemy", "x": 2000, "y": groundY - 50},
                 { "type": "enemy", "x": 5000, "y": groundY - 50},
+                { "type": "enemy", "x": 7000, "y": groundY - 50},
             
                 { "type": "reward", "x": 300, "y": groundY - 75},
                 { "type": "reward", "x": 1300, "y": groundY - 75},
@@ -59,8 +63,9 @@ var level01 = function (window) {
 
         function createEnemy(x,y){
             var enemy = game.createGameItem('enemy',25); //creating the game item and storing it in the variable enemy
-           var images = [];
-            var redSquare = draw.bitmap('img/joker.png');
+            var images = ['img/joker.png', 'img/riddler.png', 'img/scarecrow.png', 'img/penguin.png'];
+            var randomNum = getRndInteger(0, 3);
+            var redSquare = draw.bitmap(images[randomNum]);
             redSquare.x = -45;
             redSquare.y = -80;
             redSquare.scaleX = 0.3;

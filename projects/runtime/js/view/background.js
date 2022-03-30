@@ -43,7 +43,7 @@ var background = function (window) {
             // TODO: 3 - Add a moon and starfield
             var moon = draw.bitmap('img/moon.png'); // created a variable called moon. Draw.bitmap draws the image and stores it in the moon variable
             moon.x = 900; // moves the moon to the left or right
-            moon.y = 50; // moves the moon up or down
+            moon.y = 39; // moves the moon up or down
             moon.scaleX = 0.6; // scales the image on the x axis
             moon.scaleY = 0.6; // scales the moon on the y axis
             background.addChild(moon);
@@ -88,8 +88,10 @@ var background = function (window) {
             
             // TODO 4: Part 1 - Add a tree
             tree = draw.bitmap('img/tree.png');
-            tree.x = 0; //assigns an x value to the tree
-            tree.y = groundY - 220; //declares the y location of the tree
+            tree.x = 200; //assigns an x value to the tree
+            tree.y = groundY - 450; //declares the y location of the tree
+            tree.scaleX = 0.3;
+            tree.scaleY = 0.3;
             background.addChild(tree);
             
         } // end of render function - DO NOT DELETE
