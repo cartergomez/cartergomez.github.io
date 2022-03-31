@@ -17,20 +17,38 @@ var level01 = function (window) {
             "speed": -3,
             "gameItems": [
                 { "type": "sawblade", "x": 600, "y": groundY - 20},
-                { "type": "sawblade", "x": 2000, "y": groundY - 100},
+                { "type": "sawblade", "x": 2000, "y": groundY - 120},
                 { "type": "sawblade", "x": 1000, "y": groundY - 20},
                 { "type": "sawblade", "x": 1500, "y": groundY - 20},
-                { "type": "sawblade", "x": 2000, "y": groundY - 100},
+                { "type": "sawblade", "x": 2000, "y": groundY - 120},
                 { "type": "sawblade", "x": 2400, "y": groundY - 20},
+                { "type": "sawblade", "x": 2900, "y": groundY - 20},
+                { "type": "sawblade", "x": 3500, "y": groundY - 120},
+                { "type": "sawblade", "x": 5000, "y": groundY - 20},
+                { "type": "sawblade", "x": 3500, "y": groundY - 120},
+                { "type": "sawblade", "x": 5000, "y": groundY - 20},
+                { "type": "sawblade", "x": 6000, "y": groundY - 20},
+                { "type": "sawblade", "x": 8000, "y": groundY - 120},
+                { "type": "sawblade", "x": 9000, "y": groundY - 20},
 
                 { "type": "enemy", "x": 500, "y": groundY - 50},
                 { "type": "enemy", "x": 2000, "y": groundY - 50},
                 { "type": "enemy", "x": 5000, "y": groundY - 50},
                 { "type": "enemy", "x": 7000, "y": groundY - 50},
+                { "type": "enemy", "x": 8500, "y": groundY - 50},
+                { "type": "enemy", "x": 9900, "y": groundY - 50},
+                { "type": "enemy", "x": 9999, "y": groundY - 50},
             
                 { "type": "reward", "x": 300, "y": groundY - 75},
                 { "type": "reward", "x": 1300, "y": groundY - 75},
                 { "type": "reward", "x": 1200, "y": groundY - 75},
+                { "type": "reward", "x": 2600, "y": groundY - 75},
+                { "type": "reward", "x": 3000, "y": groundY - 75},
+                { "type": "reward", "x": 6000, "y": groundY - 75},
+                { "type": "reward", "x": 6500, "y": groundY - 75},
+                { "type": "reward", "x": 8000, "y": groundY - 75},
+                { "type": "reward", "x": 9050, "y": groundY - 75},
+                { "type": "reward", "x": 10003, "y": groundY - 75},
             ]
         };
         window.levelData = levelData;
@@ -63,8 +81,8 @@ var level01 = function (window) {
 
         function createEnemy(x,y){
             var enemy = game.createGameItem('enemy',25); //creating the game item and storing it in the variable enemy
-            var images = ['img/joker.png', 'img/riddler.png', 'img/scarecrow.png', 'img/penguin.png'];
-            var randomNum = getRndInteger(0, 3);
+            var images = ['img/joker.png', 'img/riddler.png', 'img/scarecrow.png', 'img/penguin.png', 'img/twoface.png', 'img/crook.png', 'img/crook2.png'];
+            var randomNum = getRndInteger(0, 7);
             var redSquare = draw.bitmap(images[randomNum]);
             redSquare.x = -45;
             redSquare.y = -80;

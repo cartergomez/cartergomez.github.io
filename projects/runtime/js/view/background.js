@@ -43,7 +43,7 @@ var background = function (window) {
             // TODO: 3 - Add a moon and starfield
             var moon = draw.bitmap('img/moon.png'); // created a variable called moon. Draw.bitmap draws the image and stores it in the moon variable
             moon.x = 900; // moves the moon to the left or right
-            moon.y = 39; // moves the moon up or down
+            moon.y = 20; // moves the moon up or down
             moon.scaleX = 0.6; // scales the image on the x axis
             moon.scaleY = 0.6; // scales the moon on the y axis
             background.addChild(moon);
@@ -57,10 +57,10 @@ var background = function (window) {
 
             
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            for(var i=0;i<5;++i) {
-                var buildingHeight = 300; //creates a variable called buildingHeught that holds the height of the building
-                var building = draw.rect(75,buildingHeight,'LightGray','Black',1);
-                building.x = 200*i; //positions the x of each building 200 pixels from the next building
+            for(var i=0; i < 50; i++) {
+                var buildingHeight = 350*Math.random(); //creates a variable called buildingHeught that holds the height of the building
+                var building = draw.rect(75,buildingHeight,'#6F6D72');
+                building.x = 50*i; //positions the x of each building 200 pixels from the next building
                 building.y = groundY-buildingHeight; //sets the y of the building off of groundY - buildingHeight
                 background.addChild(building); // adds building to background so it can be seen
                 buildings.push(building); // pushes each individual building to the buildings array
