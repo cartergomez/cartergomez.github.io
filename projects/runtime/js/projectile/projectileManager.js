@@ -18,7 +18,7 @@
             _objects = []; 
         
         function makeProjectile() {
-            var projectile = _.extend(draw.circle(5, '#FE1EFE'), physikz.makeBody('projectile'));
+            var projectile = _.extend(draw.circle(5, '#f5e618'), physikz.makeBody('projectile'));
             
             // TODO : get from settings JSON //
             projectile.volatility = 10;

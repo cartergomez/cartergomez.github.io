@@ -30,14 +30,16 @@ var level01 = function (window) {
                 { "type": "sawblade", "x": 6000, "y": groundY - 20},
                 { "type": "sawblade", "x": 8000, "y": groundY - 120},
                 { "type": "sawblade", "x": 9000, "y": groundY - 20},
+                { "type": "sawblade", "x": 9600, "y": groundY - 20},
+                { "type": "sawblade", "x": 9800, "y": groundY - 120},
 
                 { "type": "enemy", "x": 500, "y": groundY - 50},
                 { "type": "enemy", "x": 2000, "y": groundY - 50},
                 { "type": "enemy", "x": 5000, "y": groundY - 50},
                 { "type": "enemy", "x": 7000, "y": groundY - 50},
-                { "type": "enemy", "x": 8500, "y": groundY - 50},
+                { "type": "enemy", "x": 7999, "y": groundY - 50},
+                { "type": "enemy", "x": 8999, "y": groundY - 50},
                 { "type": "enemy", "x": 9900, "y": groundY - 50},
-                { "type": "enemy", "x": 9999, "y": groundY - 50},
             
                 { "type": "reward", "x": 300, "y": groundY - 75},
                 { "type": "reward", "x": 1300, "y": groundY - 75},
@@ -84,10 +86,11 @@ var level01 = function (window) {
             var images = ['img/joker.png', 'img/riddler.png', 'img/scarecrow.png', 'img/penguin.png', 'img/twoface.png', 'img/crook.png', 'img/crook2.png'];
             var randomNum = getRndInteger(0, 7);
             var redSquare = draw.bitmap(images[randomNum]);
-            redSquare.x = -45;
-            redSquare.y = -80;
-            redSquare.scaleX = 0.3;
-            redSquare.scaleY = 0.3;
+            redSquare.x = -45; //positions the x of the enemy
+            redSquare.y = -80; //position the y of the enemy
+            redSquare.scaleX = 0.3; //scales the x of the enemy
+            redSquare.scaleY = 0.3; //scakes the y of the enemy
+
             enemy.addChild(redSquare); //adds the redsquare to the enemy game
 
             enemy.x = x;
